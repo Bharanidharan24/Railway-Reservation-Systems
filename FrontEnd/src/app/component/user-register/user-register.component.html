@@ -1,0 +1,70 @@
+<p>user-Registration!</p>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<form>
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form #myForm="ngForm">
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> UserName: <small>This will be your login user
+                                name</small> </label>
+                        <input required ngModel type="text" #name="ngModel" [(ngModel)]="user.userName" name="name" id="name"
+                            class="form-control phone" maxlength="28" placeholder="Enter your fullname..." />
+                          
+                    </div>
+                    <div class="form-group">
+                        <label for="gender"><span class="req">* </span> Gender: </label>
+                        <input class="form-control" type="text" [(ngModel)]="user.gender" name="gender" id="txt" required
+                            placeholder="Enter your community" />
+                              <div id="errLast"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="PhoneNumber"><span class="req">* </span> PhoneNumber: </label>
+                        <input class="form-control" type="number" [(ngModel)]="user.phNo" name="phonenumber" id="txt"
+                            placeholder="Enter your Phonenumber" required  #phonenumber="ngModel"   oninput="validity.valid||(value='');"/>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="aadharNumber"><span class="req">* </span> AAdharNumber: </label>
+                        <input class="form-control" required type="number" [(ngModel)]="user.adharNo" name="domain"
+                            id="aadharnumber" placeholder="Enter your AadharNumber" />
+                        <div class="status" id="status"></div>
+                        <div id="errLast"></div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="date"><span class="req">* </span> Date: </label>
+                        <input class="form-control" type="date" [(ngModel)]="user.date" name="date" id="txt" required
+                            placeholder="Enter Date" />
+                              <div id="errLast"></div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success" [disabled]="myForm.invalid"type="submit" name="submit_reg" value="Register" (click)="registerNow()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+<div>
+
+    <a class="nav-link" routerLink="/home">Home</a>
+</div>
+</form>
